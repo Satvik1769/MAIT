@@ -3,25 +3,186 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+  --width: 86px;
+  --l-cols-count: 14;
+  --l-rows-count: 7;
+  --sm-w-cols: 8;
+  --grid-border: 1px solid #000;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --darkWhite: #f9f9f9;
+  --border: #dedede;
+  --text: #151515;
+  --white: #fafafa;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  color: var(--text);
+  background-color: var(--white);
+}
+
+section {
+  padding-inline: 30px;
+}
+
+button {
+  background: "none";
+  font-weight: 800;
+}
+
+.hover {
+  transition: transform 0.2s ease-in-out;
+}
+.hover1:hover {
+  transition: transform 1s ease-in-out;
+  background-color: var(--darkWhite);
+  border: 1px solid var(--border);
+}
+
+.hover:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.hover:active {
+  transform: scale(0.95);
+  cursor: grabbing;
+}
+
+.fcc {
+  @apply flex flex-col items-center;
+}
+.fccc {
+  @apply fcc justify-center;
+}
+
+.gcc {
+  @apply grid items-center justify-center;
+}
+
+input::placeholder {
+  color: var(--text);
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    /* display: block; */
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes zoomCenter {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
+    translate: (-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+  }
+}
+
+.gridTest {
+  display: grid;
+  grid-template-columns: repeat(var(--l-cols-count), var(--width));
+  gap: 0;
+}
+
+@media (max-width: 768px) {
+  .gridTest {
+    grid-template-columns: repeat(var(--sm-w-cols), var(--width));
+  }
+}
+
+.gridTest > div {
+  width: var(--width);
+  height: var(--width);
+  border: var(--grid-border);
+  border-right: none;
+}
+
+.gridTest > div:last-child {
+  border-right: var(--grid-border);
+}
+/* .gridTest >  */
+
+#logo {
+  color: #151515;
+  font-family: Bebas Neue;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135.6%; /* 32.544px */
+  letter-spacing: -0.96px;
+  text-transform: uppercase;
+}
+
+input {
+  border-radius: 5px;
+  border: 1px solid #dedede;
+  background: #fff;
+  height: 50px;
+  padding-inline: 10px;
+}
+
+.btnPrimary {
+  border-radius: 7px;
+  background: #151515;
+  height: 50px;
+  width: 100%;
+  color: var(--white);
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:disabled {
+  background-color: #bebebe;
+  cursor: not-allowed;
+}
+
+button {
+  color: var(--text);
+  font-family: Raleway;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.container {
+  max-width: 1200px;
+  @apply w-full;
+}
+
+.smlBtn {
+  display: flex;
+  padding: 9px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 7px;
+}
+
+.whiteBtnSml {
+  @apply smlBtn;
+  border: 1px solid #dedede;
+  background: #f9f9f9;
+}
+
+.blackBtnSml {
+  @apply smlBtn;
+  background: #151515;
+  color: var(--white);
 }

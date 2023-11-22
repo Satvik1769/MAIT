@@ -1,10 +1,14 @@
 import Header from "../_components/Header";
 import LeftMenu from "../_components/LeftMenu";
 
-const layout = () => {
+const layout = ({ children }) => {
   return (
     <>
-      <Header />
+      <Header bg={true} />
+      <div className="flex justify-between full">
+        <LeftMenu />
+        {children}
+      </div>
     </>
   );
 };

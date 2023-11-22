@@ -1,10 +1,12 @@
 const LeftMenu = () => {
   return (
     <div
-      className="md:min-w-[200px]"
+      className="md:min-w-[200px] leftMenuBg"
       style={{
-        backgroundColor: "white",
-        borderRight: "1px solid var(--border",
+        position: "fixed",
+        top: 0,
+        zIndex: -1,
+        left: 0,
         maxWidth: "240px",
         width: "100%",
         height: "100vh",

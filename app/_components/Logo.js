@@ -6,6 +6,7 @@ const Logo = ({ width = 24, fontSize = 24, gap }) => {
   return (
     <Link
       href="/"
+      id="logo"
       className="flex items-center gap-x-5 hover"
       style={{
         gap: gap,
@@ -16,7 +17,7 @@ const Logo = ({ width = 24, fontSize = 24, gap }) => {
         style={{
           fontSize: fontSize,
         }}
-        id="logo"
+        // id="logo"
       >
         block
       </h5>

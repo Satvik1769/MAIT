@@ -22,4 +22,4 @@ function AadharCard() {
   )
 }
 
-export default AadharCard
+export default AadharCard;

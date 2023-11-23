@@ -28,7 +28,7 @@ const Dashboard = () => {
             fontWeight: 500,
           }}
         >
-          no docs here
+          Docs Found Here
         </h3>
       </section>
     </section>

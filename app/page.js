@@ -1,3 +1,4 @@
+import ButtonHome from "./_components/ButtonHome";
 import GridBg from "./_components/GridBg";
 import Header from "./_components/Header";
 
@@ -19,9 +20,7 @@ export default function Home() {
             borderLeft: "1px solid var(--border)",
           }}
         >
-          <button className="btnPrimary">
-            Retrieve Your Documents Securely
-          </button>
+          <ButtonHome />
         </div>
       </section>
     </div>

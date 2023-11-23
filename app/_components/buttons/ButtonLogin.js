@@ -3,7 +3,7 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 const ButtonAuth = ({ text = "login" }) => {
   const session = useSession();
-  console.log("session", session);
+  // console.log("session", session);
   let isLogout = false;
   if (session && session.data && session.status == "authenticated")
     isLogout = true;

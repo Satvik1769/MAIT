@@ -3,24 +3,39 @@
 @tailwind utilities;
 
 :root {
-  --width: 86px;
+  --width: 88.5px;
   --l-cols-count: 14;
   --l-rows-count: 7;
   --sm-w-cols: 8;
-  --grid-border: 1px solid #000;
+  --grid-border: 1px solid var(--border2);
 
   --darkWhite: #f9f9f9;
   --border: #dedede;
+  --border2: #e0e0e0;
   --text: #151515;
   --white: #fafafa;
 }
 
+.border {
+  border: 1px solid var(--border);
+}
+
 body {
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
+
   width: 100vw;
   color: var(--text);
   background-color: var(--white);
+  opacity: 0.9;
+  background: linear-gradient(
+    109deg,
+    rgba(236, 239, 96, 0.4) -1.78%,
+    rgba(188, 84, 204, 0.4) 53.03%,
+    rgba(55, 218, 241, 0.4) 105.6%
+  );
+  backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
 section {
@@ -36,7 +51,7 @@ button {
   transition: transform 0.2s ease-in-out;
 }
 .hover1:hover {
-  transition: transform 1s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   background-color: var(--darkWhite);
   border: 1px solid var(--border);
 }
@@ -46,6 +61,13 @@ button {
   cursor: pointer;
 }
 
+a {
+  @apply hover1;
+}
+#logo:hover {
+  background: none !important;
+  border: none !important;
+}
 .hover:active {
   transform: scale(0.95);
   cursor: grabbing;
@@ -91,6 +113,7 @@ input::placeholder {
   }
 }
 
+/* GRID START */
 .gridTest {
   display: grid;
   grid-template-columns: repeat(var(--l-cols-count), var(--width));
@@ -110,9 +133,25 @@ input::placeholder {
   border-right: none;
 }
 
-.gridTest > div:last-child {
+.gridTest > div:nth-child(14n + 16),
+.gridTest > div:nth-child(14) {
   border-right: var(--grid-border);
 }
+
+.gridTest > h1,
+.gridTest > h3 {
+  grid-column: 1 / -1;
+  grid-row: 2 / 4;
+}
+/* .gridTest > h3 {
+  grid-row: 2 / 4;
+} */
+
+.gridTest > div:nth-child(n + 31) {
+  border-top: none;
+}
+
+/* GRID END */
 /* .gridTest >  */
 
 #logo {
@@ -143,11 +182,15 @@ input {
 }
 
 button:hover {
-  opacity: 0.8;
+  opacity: 0.9;
+  border-radius: 2;
+  transition: border-radius 0.4s ease-in-out;
 }
 
 button:disabled {
-  background-color: #bebebe;
+  background-color: var(--border);
+  color: #15151560;
+  border: 1px solid #15151520;
   cursor: not-allowed;
 }
 
@@ -185,4 +228,86 @@ button {
   @apply smlBtn;
   background: #151515;
   color: var(--white);
+}
+
+h1 {
+  color: #151515;
+  text-align: center;
+  font-family: Raleway;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 99.203%; /* 63.49px */
+  letter-spacing: -2.56px;
+  text-transform: capitalize;
+}
+
+h3 {
+  color: #151515;
+  text-align: center;
+  font-family: Raleway;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 99.203%; /* 15.872px */
+  letter-spacing: -0.64px;
+  text-transform: capitalize;
+}
+
+.full {
+  @apply h-full w-full;
+}
+
+.gradBg {
+}
+
+.homeWhiteBg {
+  border-radius: 0px 0px 30px 30px;
+  border: 1px solid rgba(250, 250, 250, 0.7);
+  background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  backdrop-filter: blur(12.25px);
+}
+
+.headerWhiteBg {
+  border: 1px solid rgba(250, 250, 250, 0.7);
+  background: linear-gradient(
+    168deg,
+    rgba(255, 255, 255, 0.89) 0%,
+    rgba(255, 255, 255, 0.49) 96.01%
+  );
+  box-shadow: 5px 5px 20px 0px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12.25px);
+}
+
+.leftMenuBg {
+  border-right: 1px solid rgba(250, 250, 250, 0.7);
+  background: linear-gradient(
+    167deg,
+    rgba(255, 255, 255, 0.51) -9.76%,
+    rgba(255, 255, 255, 0.35) 100.48%
+  );
+  box-shadow: 5px 5px 20px 0px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12.25px);
+}
+
+h2 {
+  color: #151515;
+  font-family: Raleway;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 99.203%; /* 35.713px */
+  letter-spacing: -1.44px;
+  text-transform: capitalize;
+}
+
+#searchBar {
+  display: flex;
+  @apply w-full;
+  padding: 16px 24px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 7px;
+  border: 1px solid #dedede;
+  background: #f9f9f9;
 }

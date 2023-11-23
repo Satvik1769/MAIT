@@ -15,8 +15,9 @@ export default function page() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handleClick = () => {
+    console.log("username ", username, " password ", password);
     signIn("credentials", {
-      callbackUrl: "/",
+      callbackUrl: "/u",
       username,
       password,
       type: isLoginPage ? "login" : "register",
@@ -30,7 +31,7 @@ export default function page() {
   };
   return (
     <div
-      className="fccc w-full h-full"
+      className="fccc w-full h-screen"
       // style={{
       //   backgroundColor: "transparent",
       //   backgroundImage: "url('/loginScreen.png')",

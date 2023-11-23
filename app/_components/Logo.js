@@ -1,10 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Logo = ({ width = 24, fontSize = 24, gap }) => {
   const height = (width / 170) * 158;
   return (
-    <div
-      className="flex items-center gap-x-5"
+    <Link
+      href="/"
+      id="logo"
+      className="flex items-center gap-x-5 hover"
       style={{
         gap: gap,
       }}
@@ -14,11 +17,11 @@ const Logo = ({ width = 24, fontSize = 24, gap }) => {
         style={{
           fontSize: fontSize,
         }}
-        id="logo"
+        // id="logo"
       >
         block
       </h5>
-    </div>
+    </Link>
   );
 };
 

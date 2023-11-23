@@ -1,5 +1,6 @@
 import { Raleway, Bebas_Neue, Poppins } from "next/font/google";
 import "./globals.css";
+import SessionWrapper from "./_components/SessionWrapper";
 
 const rale = Raleway({
   subsets: ["latin"],
@@ -35,7 +36,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${rale.className} ${beba.className} ${pop.className} fcc`}
       >
-        {children}
+        <SessionWrapper>{children}</SessionWrapper>
       </body>
     </html>
   );

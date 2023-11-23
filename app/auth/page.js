@@ -3,6 +3,7 @@ import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "../_components/Logo";
+import OtpVerification from "../_components/OtpVerification";
 
 export default function page() {
   const error = useSearchParams().get("error");
@@ -41,6 +42,7 @@ export default function page() {
       // }}
     >
       <Logo width={82} fontSize={64} />
+      <OtpVerification />
       <div
         className="loginbox fcc gap-y-10 mt-12"
         // style={{

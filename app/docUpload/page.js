@@ -1,5 +1,5 @@
 "use client";
-require("dotenv").config();
+// require("dotenv").config();
 import { url } from "@/constants";
 import { useState } from "react";
 
@@ -22,7 +22,7 @@ export default function Page() {
         method: "POST",
         headers: {
           // Add any required headers here, e.g., Content-Type
-          "Content-Type": "multipart/form-data",
+          // "Content-Type": "multipart/form-data",
         },
         body,
       });

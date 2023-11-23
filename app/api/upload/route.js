@@ -23,9 +23,10 @@ async function handler(req, res) {
       console.error("Error uploading file:", err);
       return new NextResponse({ error: "Error uploading file" });
     }
+    const data = await req.formData();
 
     // Now req.file should be populated with information about the uploaded file
-    console.log(req.body);
+    console.log(data);
     // const imagePath = req.file.path;
 
     try {

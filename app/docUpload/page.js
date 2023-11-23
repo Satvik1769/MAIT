@@ -1,5 +1,5 @@
 "use client";
-require("dotenv").config();
+// require("dotenv").config();
 import { url } from "@/constants";
 import { useState } from "react";
 

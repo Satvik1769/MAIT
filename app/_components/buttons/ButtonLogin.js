@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 const ButtonAuth = ({ text = "login" }) => {
   const session = useSession();
   // console.log("session", session);
+  console.log("hello");
   let isLogout = false;
   if (session && session.data && session.status == "authenticated")
     isLogout = true;

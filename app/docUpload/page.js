@@ -20,6 +20,7 @@ export default function Page() {
       body.append("file", selectedFile);
       const response = await fetch(url + "/api/upload", {
         method: "POST",
+
         body,
       });
       console.log(response);

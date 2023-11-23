@@ -18,11 +18,10 @@ const Dashboard = () => {
       />
       <SearchBar setDocument={setDocument} />
       <section className="full p-0 fccc ">
-        <Document document={document} />
-        {document ? (
-          <>
+        {document != null ? (
+          <div className="self-start">
             <Document document={document} />
-          </>
+          </div>
         ) : (
           <>
             <Image

@@ -10,9 +10,8 @@ import { auth } from "./firebase.config";
 import toast, { Toaster } from "react-hot-toast";
 import { signInWithPhoneNumber } from "firebase/auth";
 
-function otpVerification() {
+function otpVerification({ ph, setPh, setPhoneVerified }) {
   const [otp, setOtp] = useState("");
-  const [ph, setPh] = useState("");
   const [loading, setLoading] = useState(false);
   const [showOTP, setShowOTP] = useState(false);
   const [user, setUser] = useState(null);
@@ -45,6 +44,7 @@ function otpVerification() {
     signInWithPhoneNumber(auth, formatPh, appVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
+        setPhoneVerified(true);
         setLoading(false);
         setShowOTP(true);
         toast.success("OTP sended successfully");

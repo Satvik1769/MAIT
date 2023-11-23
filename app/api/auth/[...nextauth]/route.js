@@ -12,7 +12,7 @@ export const authOptions = {
         type: { label: "type", type: "select", options: ["login", "register"] },
       },
       async authorize(credentials, req) {
-        console.log("authorize", credentials, req);
+        // console.log("authorize", credentials, req);
         // If no error and we have user data, return it
         const { username, password, type } = credentials;
         const user = await fetch(url + `/api/db/getUsers/${username?.trim()}`)

@@ -6,20 +6,24 @@ import { useState } from "react";
 const SearchBar = ({ setDocument }) => {
   const [option, setOption] = useState("");
   const session = useSession();
+  console.log("session", session);
   const handleClick = debounce(async () => {
     console.log("option clicked", option);
+    console.log("session", session);
+
     // send data to backend to get the data
-    if (!session?.user?.phone) return;
-    const data = await fetch(url + "/api/db/cids/getCid", {
-      method: "POST",
-      body: JSON.stringify({
-        type: option,
-        phone: session.user.phone,
-      }),
-    })
+    // if (!session.data?.user?.username) {
+    //   // alert("Please login to continue");
+    //   return;
+    // }
+    const data = await fetch(
+      url +
+        `/api/db/cids/getCid/${session.data.user.username || "user"}/${option}`
+    )
       .then((res) => res.json())
       .catch((err) => console.log(err));
-    setDocument(data);
+    console.log("items found", data);
+    setDocument(data || false);
   }, 300);
   return (
     <div className="flex h-fit gap-x-5">
@@ -38,12 +42,15 @@ const SearchBar = ({ setDocument }) => {
           setOption(e.target.value);
         }}
       >
-        {selectOptions.map((option) => (
-          <option value={option}>{option}</option>
+        {selectOptions.map((option, index) => (
+          <option key={option + index} value={option}>
+            {option}
+          </option>
         ))}
       </select>
       <button
         className="btnPrimary"
+        disabled={option == "Select document type"}
         style={{
           flex: 2,
           height: "auto",
@@ -58,7 +65,7 @@ const SearchBar = ({ setDocument }) => {
 
 const selectOptions = [
   "Select document type",
-  "adhaar",
+  "aadhar",
   "pan",
   "passport",
   "driving license",
@@ -161,3 +168,5 @@ const selectOptions = [
 ];
 
 export default SearchBar;
+
+// https://637dc79f5cd1ff19c7303b7c8eddb2e8.ipfscdn.io/ipfs/bafybeiho33bms4ccq2i2ljsrxlf6hspasrvz73juxx6xluovusdiyybnci/0/

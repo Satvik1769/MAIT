@@ -19,13 +19,13 @@ const Logo = ({ width = 24, fontSize = 24, gap }) => {
         width={width}
         height={height}
       />
-      <h5
+      <h6
         style={{
           fontSize: fontSize,
         }}
       >
         block
-      </h5>
+      </h6>
     </Link>
   );
 };

@@ -2,13 +2,13 @@ import prisma from "../../../../../../../prisma/prismaClient";
 
 async function handler(req, { params }) {
   const { type, phone } = params;
-  const cid = await prisma.documents.findUnique({
+  const cid = await prisma.documents.findFirst({
     where: {
-      type: type,
+      type: type.toUpperCase(),
       phone: phone,
     },
   });
-  console.log(cid);
+  console.log(cid, "data", type, phone);
 
   return new Response(JSON.stringify(cid));
 }

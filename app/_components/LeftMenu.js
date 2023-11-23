@@ -30,13 +30,14 @@ const LeftMenu = () => {
         <Link
           href={item.href}
           key={index}
-          className="flex w-full px-2 items-center gap-x-3 py-3 cursor-pointer hover:bg-[#f2f2f220] rounded-md"
+          className="flex w-full px-2 items-center gap-x-3 py-3 cursor-pointer hover:bg-[#f2f2f220] rounded-md hover:text-[#a593ab]"
         >
           {item.icon}
           <h3
             className="font-semibold"
-            color="var(--text)"
+            // color="var(--text)"
             style={{
+              color: "inherit",
               fontSize: "14px",
               lineHeight: "17px",
             }}

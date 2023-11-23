@@ -12,12 +12,17 @@ const Logo = ({ width = 24, fontSize = 24, gap }) => {
         gap: gap,
       }}
     >
-      <Image src={"/logoEmpty.png"} alt="logo" width={width} height={height} />
+      <Image
+        src={"/logoEmpty.png"}
+        alt="logo"
+        priority={true}
+        width={width}
+        height={height}
+      />
       <h5
         style={{
           fontSize: fontSize,
         }}
-        // id="logo"
       >
         block
       </h5>

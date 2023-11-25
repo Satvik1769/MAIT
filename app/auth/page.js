@@ -3,6 +3,7 @@ import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "../_components/Logo";
+import OtpVerification from "../_components/OtpVerification";
 
 export default function page() {
   const error = useSearchParams().get("error");
@@ -14,6 +15,9 @@ export default function page() {
   }, [error]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [ph, setPh] = useState("");
+  const [phoneVerified, setPhoneVerified] = useState(false);
+
   const handleClick = () => {
     console.log("username ", username, " password ", password);
     signIn("credentials", {
@@ -30,27 +34,16 @@ export default function page() {
       });
   };
   return (
-    <div
-      className="fccc w-full h-screen"
-      // style={{
-      //   backgroundColor: "transparent",
-      //   backgroundImage: "url('/loginScreen.png')",
-      //   backgroundSize: "cover",
-      //   backgroundPosition: "top",
-      //   backgroundRepeat: "no-repeat",
-      // }}
-    >
+    <div className="fccc w-full h-screen">
       <Logo width={82} fontSize={64} />
-      <div
-        className="loginbox fcc gap-y-10 mt-12"
-        // style={{
-        //   backgroundColor: "transparent",
-        //   backgroundImage: "url('/bgBoxLong.png')",
-        //   backgroundSize: "contain",
-        //   backgroundPosition: "top",
-        //   backgroundRepeat: "no-repeat",
-        // }}
-      >
+      {!isLoginPage && (
+        <OtpVerification
+          ph={ph}
+          setPh={setPh}
+          setPhoneVerified={setPhoneVerified}
+        />
+      )}
+      <div className="loginbox fcc gap-y-10 mt-12">
         <h2
           style={{
             fontSize: 24,

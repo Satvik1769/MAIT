@@ -323,3 +323,56 @@ h2 {
   border: 1px solid #dedede;
   background: #f9f9f9;
 }
+
+/* CARD */
+.outerCard {
+  border-radius: 7px;
+  border: 1px solid rgba(213, 39, 54, 0);
+  /* background: linear-gradient(
+    175deg,
+    rgba(213, 39, 54, 0.15) -22.84%,
+    rgba(213, 39, 54, 0.15) -22.83%,
+    rgba(255, 255, 255, 0.5) 71.88%
+  ); */
+
+  display: flex;
+  width: 320px;
+  height: 164px;
+  padding: 5px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.innerCard {
+  display: flex;
+  padding: 15px 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
+
+  border-radius: 10px;
+  border: 1px solid #ededed;
+  /* background: linear-gradient(
+    102deg,
+    rgba(213, 39, 54, 0.15) -2.01%,
+    rgba(213, 39, 54, 0.15) -2%,
+    rgba(255, 255, 255, 0.5) 100.79%
+  ); */
+  backdrop-filter: blur(6px);
+}
+
+h5 {
+  font-family: Raleway;
+  font-size: 10px;
+  opacity: 0.4;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 99.203%; /* 9.92px */
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
